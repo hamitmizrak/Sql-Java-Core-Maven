@@ -23,5 +23,5 @@ abstract public class BankCommonProperty  implements Serializable {
     protected Date createdDate=new Date(System.currentTimeMillis());
 
     // Gövdesiz Method
-    abstract public void nowDate();
+    abstract public String nowDate();
 }//end class

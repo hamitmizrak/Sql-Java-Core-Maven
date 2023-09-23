@@ -2,7 +2,9 @@ package com.hamitmizrak.dto;
 
 import lombok.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 // LOMBOK
 @Getter
@@ -25,8 +27,14 @@ public class Bank  extends BankCommonProperty implements Serializable {
 
     // Gövdesiz Method
     @Override
-    public void nowDate() {
-        System.out.println(new Date(System.currentTimeMillis()));
+    public String nowDate() {
+        Locale locale=new Locale("tr","TR");
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMMM-yyyy HH:mm:ss",locale);
+        Date date=new Date();
+        String format=simpleDateFormat.format(date);
+        //System.out.println(new Date(System.currentTimeMillis()));
+        System.out.println(format);
+        return format;
     }
 }//end class
 
