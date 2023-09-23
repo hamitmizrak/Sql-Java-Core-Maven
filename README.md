@@ -1,139 +1,81 @@
-![](https://komarev.com/ghpvc/?username=hamitmizrak)
-
-![readme](./picture/readme.jpg)
- 
+# SQL and Java Core  ATM Project
+## Git Link [Github Link](https://github.com/hamitmizrak/Sql-Java-Core-Maven)
 ---
-https://github.com/hamitmizrak/
+## `Project Properties`
+- **Java20**
+- *Maven*
+  <br/>
 ---
-***
 
+## Maven Dependency
+> SQL
+> Lombok
+> Servlet
 ---
-## RolMap
-
-### Bean
+### Maven Libraries
 ```sh
-ModelMapper
-PasswordEncoder
-OpenApiConfiguration
+<?xml version="1.0" encoding="UTF-8"?>  
+<project xmlns="http://maven.apache.org/POM/4.0.0"  
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+ <modelVersion>4.0.0</modelVersion>  
+  
+ <groupId>com.hamitmizrak</groupId>  
+ <artifactId>Sql_JavaCore</artifactId>  
+ <version>1.0-SNAPSHOT</version>  
+ <name>JavaFullStackDeveloper_11</name>  
+ <description>Java Core SQL Native</description>  
+  <!--<packaging>JAR</packaging>-->  <!--for Spring Boot Dockerize-->  
+ <!--<packaging>WAR</packaging>--> <!--manuel deployment Apache Tomcat-->  
+ <!--PROPERTIES-->  <properties>  
+ <encoding>UTF-8</encoding>  
+ <java.version>20</java.version>  
+  
+  <!--for maven-->  
+  <maven.compiler.source>20</maven.compiler.source>  
+ <maven.compiler.target>20</maven.compiler.target>  
+ <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  
+  <!--my special version numbers , other technology-->  
+  <mysql.version>8.0.28</mysql.version>  
+ <lombok.version>1.18.20.0</lombok.version>  
+ <javax.servlet.version>4.0.1</javax.servlet.version>  
+ </properties>  
+  <!--DEPENDENCIES-->  
+  <dependencies>  
+  
+  <!--Apache Tomcat for apache Tomcat-->  
+  <dependency>  
+ <groupId>javax.servlet</groupId>  
+ <artifactId>javax.servlet-api</artifactId>  
+ <version>${javax.servlet.version}</version>  
+ <scope>provided</scope>  
+ </dependency>  
+  <!--lombok-->  
+ <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->  <dependency>  
+ <groupId>org.projectlombok</groupId>  
+ <artifactId>lombok-maven-plugin</artifactId>  
+ <version>${lombok.version}</version>  
+ <scope>provided</scope>  
+ </dependency>  
+  
+  <!--Mysql-->  
+ <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->  <dependency>  
+ <groupId>mysql</groupId>  
+ <artifactId>mysql-connector-java</artifactId>  
+ <version>${mysql.version}</version>  
+ </dependency> </dependencies>  
+ <build>  <!--manuel apache tomcat-->  
+  <defaultGoal>spring-boot:run</defaultGoal>  
+ <finalName>${project.artifactId}</finalName>  
+ <plugins>  <!-- for maven -->  
+ <!--<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> <version>3.3.1</version> </plugin> --> <!-- for maven target 17 --> <!--<plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-compiler-plugin</artifactId> <version>3.8.1</version> <configuration> <source>17</source> <target>17</target> </configuration> </plugin>-->  
+  <plugin>  
+ <groupId>org.springframework.boot</groupId>  
+ <artifactId>spring-boot-maven-plugin</artifactId>  
+ <configuration> <excludes> <exclude> <groupId>org.projectlombok</groupId>  
+ <artifactId>lombok</artifactId>  
+ </exclude> </excludes> </configuration> </plugin> </plugins> </build> <!--end build -->  
+</project>
 ```
-
-### Exception
-```sh
-HamitMizrakException
-ResourceAuthorizedException
-ResourceNotFoundException
-ResourceCreatedException
-ResourceBadRequestException
-```
-
-### 
-```sh
-RegisterDto
-BaseEntity
-RegisterEntity
-IRegisterRepository
-```
-
-
----
-#  Java Full Stack Developer -7 (1 Nisan  2023)
-* [GitHub](https://github.com/hamitmizrak/Turgut_Ozal_University_JavaTutorialsCommonData)
-*
-### Gereksinimler
-Java 19
-intellij idea Ultimate
-Visual Studio Code
-Node js
----
-
-## Visual Studio codes
-Extensisons
-- Browser preview
-- Auto Close tag
-- tabnine
-- Auto import
-- Auto rename tag
-- Bootstrap 5 Quick Snipperts
-- Bracket Pair Colorizer 2
-- Css Snippet
-- Es7+ React/REdux/React-Native snippets
-- Html Snippets
-- JsQuery Snippets
-- Live Server
-- Material Icon Theme
-- Open-in-Browser
-- Path Intellisense
-- Prettier Code formatter
-- Project Manager
-- Reactjs code Snippets
----
-
-## Tecnology
-##FrontEnd
-- Html5
-- Css3
-- responsive design
-- Js
-- jquery
-- Bootstrap
-- react
-
-
----
-
-## BackEnd
-* javase
-* jdbc crud native
-* hibernate
-* spring core
-* spring mvc
-* spring data
-* spring rest
-* spring security
-
----
-
-## Libraries
-Thymeleaf
-Lombok
-Validation
-
-## Database
-H2 Database
-Mysql
-Postgresql
-
----
-## dependency
-Spring Web
-Spring Data JPA
-Spring Rest
-Spring Security
-
----
-# Spring Tools
-Spring Boot DevTools
-Spring Configuration Processor
-Spring Boot Actuator
-
----
-
-## Docker Deployment
-
-1.ADIM
-npx create-react-app frontend
-cd frontend
-npm start
-code .
-
-2.ADIM
-NOT: node_modules siliyoruz bunu sonrasında
-npm i
-
-3.ADIM
-terminal: package.json seviyesinde olacak şekilde
-npm install axios
-npm install bootstrap --save
-npm install node-sass --save
 
 
