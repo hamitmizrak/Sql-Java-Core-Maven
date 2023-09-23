@@ -25,4 +25,10 @@ public class Customer extends BankCommonProperty implements Serializable {
         this.username = username;
         this.money = money;
     }
+
+    // Gövdesiz Method
+    @Override
+    public void nowDate() {
+        System.out.println(new Date(System.currentTimeMillis()));
+    }
 }//end class

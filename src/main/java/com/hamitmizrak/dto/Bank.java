@@ -1,8 +1,6 @@
 package com.hamitmizrak.dto;
 
-
 import lombok.*;
-
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,6 +23,11 @@ public class Bank  extends BankCommonProperty implements Serializable {
         this.countryName = countryName;
     }
 
+    // Gövdesiz Method
+    @Override
+    public void nowDate() {
+        System.out.println(new Date(System.currentTimeMillis()));
+    }
 }//end class
 
 

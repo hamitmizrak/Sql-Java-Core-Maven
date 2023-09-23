@@ -21,4 +21,7 @@ abstract public class BankCommonProperty  implements Serializable {
 
     @Builder.Default // Lombok
     protected Date createdDate=new Date(System.currentTimeMillis());
+
+    // Gövdesiz Method
+    abstract public void nowDate();
 }//end class
