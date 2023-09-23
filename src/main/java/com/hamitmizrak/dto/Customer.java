@@ -8,7 +8,6 @@ import java.util.Locale;
 // LOMBOK
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

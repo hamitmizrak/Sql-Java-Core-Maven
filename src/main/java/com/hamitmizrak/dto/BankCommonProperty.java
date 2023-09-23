@@ -9,7 +9,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 abstract public class BankCommonProperty  implements Serializable {
     public static final Long serialVersionUID=1L;
 
