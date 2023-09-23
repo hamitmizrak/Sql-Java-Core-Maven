@@ -28,6 +28,21 @@ public class Customer extends BankCommonProperty implements Serializable {
         this.money = money;
     }
 
+    // ToString
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "surname='" + surname + '\'' +
+                ", username='" + username + '\'' +
+                ", money=" + money +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdDate=" + createdDate +
+                "} " + super.toString();
+    }
+
     // Gövdesiz Method
     @Override
     public String nowDate() {

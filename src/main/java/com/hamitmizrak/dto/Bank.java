@@ -25,6 +25,21 @@ public class Bank  extends BankCommonProperty implements Serializable {
         this.countryName = countryName;
     }
 
+    // ToString
+
+
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "countryName='" + countryName + '\'' +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", createdDate=" + createdDate +
+                "} " + super.toString();
+    }
+
     // Gövdesiz Method
     @Override
     public String nowDate() {
