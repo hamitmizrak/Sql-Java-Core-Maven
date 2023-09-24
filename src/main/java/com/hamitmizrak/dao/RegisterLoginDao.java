@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class RegisterLoginDao implements ILoginProcess {
 
-
+    // IS LOGIN
     @Override
     public RegisterDto isLogin(String email, String password) {
         RegisterDto registerDto = null;
@@ -48,32 +48,37 @@ public class RegisterLoginDao implements ILoginProcess {
         return registerDto;
     }
 
+    //REGISTER
     @Override
     public void register() {
         System.out.println("Kayıt sayfasına hoş geldiniz");
     }
 
+    // PARA EKLE
     @Override
     public Double addMoney() {
         return null;
     }
 
+    // PARA GÖSTER
     @Override
     public void showMoney() {
 
     }
 
+    // PARA AZALT
     @Override
     public void reduceMoney() {
 
     }
 
+    // EFT YAP
     @Override
     public void sentEftMoney() {
 
     }
 
-    // HAVALE
+    // HAVALE YAP
     @Override
     public void sentTransferMoney() {
 
