@@ -1,18 +1,20 @@
 package com.hamitmizrak.utils;
 
-import lombok.Getter;
+// Enum: Sıralama, Sayılandırma, type safe
 
 public enum EMoneyCurrency {
 
-    TR(1,"tr"),EN(2,"en"),GE(3,"ge");
+    // para birimi
+    TR(1, "tr"), EN(2, "en"), GE(3, "ge");
 
-
-    private final Integer number;
-    private final String currency;
-
+    // Global variable final
     // NOT: final yazarsak;
     // parametreli constructor zorlar
     // SETTER metotudunu yazdırmaz
+    private final Integer number;
+    private final String currency;
+
+    // Parametreli constructor
     EMoneyCurrency(Integer number, String currency) {
         this.number = number;
         this.currency = currency;
