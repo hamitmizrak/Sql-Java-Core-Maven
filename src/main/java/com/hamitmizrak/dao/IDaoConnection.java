@@ -5,7 +5,7 @@ import com.hamitmizrak.database.DatabaseConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-public interface IDaoConnection<T> {
+public  interface IDaoConnection<T> {
 
     // CRUD
     // CREATE

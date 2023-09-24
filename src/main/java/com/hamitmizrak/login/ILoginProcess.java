@@ -1,9 +1,11 @@
 package com.hamitmizrak.login;
 
+import com.hamitmizrak.dto.RegisterDto;
+
 public interface ILoginProcess {
 
     // login
-    public boolean isLogin();
+    public RegisterDto isLogin(String email, String password);
 
     // Kayıt ol
     void register();

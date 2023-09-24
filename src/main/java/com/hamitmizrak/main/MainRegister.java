@@ -2,9 +2,6 @@ package com.hamitmizrak.main;
 
 import com.hamitmizrak.controller.RegisterController;
 import com.hamitmizrak.dto.RegisterDto;
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.Scanner;
 
 public class MainRegister {
     public static void main(String[] args) {
@@ -32,7 +29,7 @@ public class MainRegister {
         //registerController.list().forEach((temp)->{System.out.println(temp);});
 
         // UPDATE
-        registerController.update(1L,registerDto);
+        //registerController.update(1L,registerDto);
 
         //DELETE
         //registerController.delete(1L);
