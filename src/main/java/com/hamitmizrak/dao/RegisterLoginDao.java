@@ -3,6 +3,7 @@ package com.hamitmizrak.dao;
 import com.hamitmizrak.database.DatabaseConnection;
 import com.hamitmizrak.dto.RegisterDto;
 import com.hamitmizrak.login.ILoginProcess;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ public class RegisterLoginDao implements ILoginProcess {
             // sql query
             //String sql = "select * from `atm`.`atm_register` where email_address="+email+" and password"+password;
             //"hamitmizrak2@gmail.com","root42223"
-            String sql = "select * from `atm`.`atm_register` where email_address=\""+email+"\" and password=\""+password+"\" ";
+            String sql = "select * from `atm`.`atm_register` where email_address=\"" + email + "\" and password=\"" + password + "\" ";
             // PreparedStatement Create
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             // Sorgu: executeQuery
@@ -41,7 +42,7 @@ public class RegisterLoginDao implements ILoginProcess {
         }
         // eğer kullanıcı yoksa register sayfasına yönlendir
 
-        if(registerDto==null){
+        if (registerDto == null) {
             register();
         }
         return registerDto;
@@ -72,23 +73,27 @@ public class RegisterLoginDao implements ILoginProcess {
 
     }
 
+    // HAVALE
     @Override
     public void sentTransferMoney() {
 
     }
 
+    //Mail Gönder
     @Override
     public void smailSend() {
 
     }
 
+    // Logout
     @Override
     public void logout() {
-
+        System.out.println("Çıkış yapılıyor.");
+        System.exit(0);
     }
 
     public static void main(String[] args) {
-        RegisterLoginDao registerLoginDao=new RegisterLoginDao();
-        registerLoginDao.isLogin("hamitmizrak2@gmail.com","root42223");
+        RegisterLoginDao registerLoginDao = new RegisterLoginDao();
+        registerLoginDao.isLogin("hamitmizrak2@gmail.com", "root42223");
     }
 }
