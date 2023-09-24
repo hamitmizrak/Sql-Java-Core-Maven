@@ -21,14 +21,18 @@ public class RegisterDto  extends CommonProperty implements Serializable {
     private String emailAddress;
     private String password;
     private String telephoneNumber;
+    private String remainingNumber; // Login girişinde kalan sayı
+    private String isPassive="0"; // Kullanıcı aktif mi: 0:ise kullanıcı aktif
 
     // Parametreli constructor
-    public RegisterDto( String name, String surname, String emailAddress, String password, String telephoneNumber) {
+    public RegisterDto(String name, String surname, String emailAddress, String password, String telephoneNumber, String remainingNumber, String isPassive) {
         this.name = name;
         this.surname = surname;
         this.emailAddress = emailAddress;
         this.password = password;
         this.telephoneNumber = telephoneNumber;
+        this.remainingNumber = remainingNumber;
+        this.isPassive = isPassive;
     }
 
     // ToString
@@ -40,11 +44,12 @@ public class RegisterDto  extends CommonProperty implements Serializable {
                 ", emailAddress='" + emailAddress + '\'' +
                 ", password='" + password + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
+                ", remainingNumber='" + remainingNumber + '\'' +
+                ", isPassive=" + isPassive +
                 ", id=" + id +
                 ", createdDate=" + createdDate +
                 "} " + super.toString();
     }
-
 
     // Test Main
     public static void main(String[] args) {

@@ -19,6 +19,12 @@ CREATE TABLE `atm`.`atm_register` (
   `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
   
+  -- tabloya veri eklemek
+ALTER TABLE `atm`.`atm_register` 
+ADD COLUMN `remaining_number` VARCHAR(2) NULL DEFAULT '4' AFTER `created_date`,
+ADD COLUMN `is_passive` VARCHAR(2) NULL DEFAULT 0 AFTER `remaining_number`;
+
+  
   -- Truncate Table
   TRUNCATE `atm`.`atm_register`;
 

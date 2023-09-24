@@ -21,9 +21,9 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
             try (Connection connection = getInterfaceConnection()) {
                 // Transaction  açmak
                 connection.setAutoCommit(false);
-                // insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number) values ("Hamit","Mızrak","hamitmizrak@gmail.com","root44","+901112223344");
+                // insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number,remaining_number,is_passive) values ("Hamit","Mızrak","hamitmizrak@gmail.com","root44","+901112223344",4,0);
                 // sql query
-                String sql = "insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number) values (?,?,?,?,?);\n";
+                String sql = "insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number,remaining_number,is_passive) values (?,?,?,?,?,?,?);\n";
                 // PreparedStatement Create
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, registerDto.getName());
@@ -31,6 +31,8 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 preparedStatement.setString(3, registerDto.getEmailAddress());
                 preparedStatement.setString(4, registerDto.getPassword());
                 preparedStatement.setString(5, registerDto.getTelephoneNumber());
+                preparedStatement.setString(6, registerDto.getRemainingNumber());
+                preparedStatement.setString(7, registerDto.getIsPassive());
                 // Effected
                 int rowEffected = preparedStatement.executeUpdate();
                 if (rowEffected > 0) {
@@ -71,6 +73,8 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 registerDto.setEmailAddress(resultSet.getString("email_addres"));
                 registerDto.setPassword(resultSet.getString("password"));
                 registerDto.setTelephoneNumber(resultSet.getString("telephone_number"));
+                registerDto.setRemainingNumber(resultSet.getString("remaining_number"));
+                registerDto.setIsPassive(resultSet.getString("is_passive"));
                 registerList.add(registerDto);
             }
         } catch (SQLException sql) {
@@ -99,6 +103,8 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 registerDto.setEmailAddress(resultSet.getString("email_addres"));
                 registerDto.setPassword(resultSet.getString("password"));
                 registerDto.setTelephoneNumber(resultSet.getString("telephone_number"));
+                registerDto.setRemainingNumber(resultSet.getString("remaining_number"));
+                registerDto.setIsPassive(resultSet.getString("is_passive"));
             }
         } catch (SQLException sql) {
             sql.printStackTrace();
@@ -115,7 +121,7 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 connection.setAutoCommit(false);
                 // update `atm`.`atm_register` set  name="Adı44", surname="soyadı44",email_address="email44@gmail.com",password="şifre44",telephone_number="telefon44" where id=1;
                 // sql query
-                String sql = "update `atm`.`atm_register` set  name=?, surname=?,email_address=?,password=?,telephone_number=? where id=?;";
+                String sql = "update `atm`.`atm_register` set  name=?, surname=?,email_address=?,password=?,telephone_number=?,remaining_number=?,is_passive=? where id=?;";
                 // PreparedStatement Create
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, registerDto.getName());
@@ -123,7 +129,9 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 preparedStatement.setString(3, registerDto.getEmailAddress());
                 preparedStatement.setString(4, registerDto.getPassword());
                 preparedStatement.setString(5, registerDto.getTelephoneNumber());
-                preparedStatement.setLong(6, registerDto.getId());
+                preparedStatement.setString(6, registerDto.getRemainingNumber());
+                preparedStatement.setString(7, registerDto.getIsPassive());
+                preparedStatement.setLong(8, registerDto.getId());
                 // Effected
                 int rowEffected = preparedStatement.executeUpdate();
                 if (rowEffected > 0) {
