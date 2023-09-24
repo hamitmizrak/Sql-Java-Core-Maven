@@ -17,10 +17,10 @@ public interface IDaoConnection<T> {
     public T findById(Long id);
 
     // UPDATE
-    public T update(T t);
+    public T update(Long id,T t);
 
     // DELETE
-    public T delete(T t);
+    public T delete(Long id);
 
     //
    default Connection getInterfaceConnection(){

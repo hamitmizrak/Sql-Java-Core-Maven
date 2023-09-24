@@ -25,13 +25,13 @@ public class CustomerDao implements IDaoConnection<CustomerDto> {
 
     // CUSTOMER UPDATE
     @Override
-    public CustomerDto update(CustomerDto customerDto) {
+    public CustomerDto update(Long id,CustomerDto customerDto) {
         return null;
     }
 
    // CUSTOMER DELETE
     @Override
-    public CustomerDto delete(CustomerDto customerDto) {
+    public CustomerDto delete(Long id) {
         return null;
     }
 } //end class

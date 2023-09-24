@@ -39,13 +39,13 @@ public class RegisterController  implements IDaoConnection<RegisterDto> {
 
     // REGISTER UPDATE
     @Override
-    public RegisterDto update(RegisterDto registerDto) {
-        return registerDao.update(registerDto);
+    public RegisterDto update(Long id,RegisterDto registerDto) {
+        return registerDao.update(id,registerDto);
     }
 
     // REGISTER DELETE
     @Override
-    public RegisterDto delete(RegisterDto registerDto) {
-        return registerDao.delete(registerDto);
+    public RegisterDto delete(Long id) {
+        return registerDao.delete(id);
     }
 }

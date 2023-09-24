@@ -13,9 +13,11 @@ CREATE TABLE `atm`.`atm_register` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(250) NULL DEFAULT 'adınızı girmediniz',
   `surname` VARCHAR(250) NULL DEFAULT 'soyadınız girmediniz',
-  `email_addres` VARCHAR(250) NULL DEFAULT 'emailinizi girmediniz',
+  `email_address` VARCHAR(250) NULL DEFAULT 'emailinizi girmediniz',
   `password` VARCHAR(250) NULL DEFAULT 'pasword girmediniz',
   `telephone_number` VARCHAR(250) NULL DEFAULT 'telefon numaraınızı girmediniz',
+  `remaining_number` VARCHAR(2) NULL DEFAULT '4',
+  `is_passive` VARCHAR(2) NULL DEFAULT '0',
   `created_date` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`));
   
@@ -29,8 +31,9 @@ ADD COLUMN `is_passive` VARCHAR(2) NULL DEFAULT 0 AFTER `remaining_number`;
   TRUNCATE `atm`.`atm_register`;
 
 -- INSERT
-insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number) values ("Hamit","Mızrak","hamitmizrak@gmail.com","root44","+901112223344");
-insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number) values ("Hamit2","Mızrak2","hamitmizrak2@gmail.com","root44","+901112223344");
+insert into `atm`.`atm_register` (name,surname,email_address,password,telephone_number,remaining_number,is_passive) values ("Hamit","Mızrak","hamitmizrak@gmail.com","root44","+901112223344","4","0");
+insert into `atm`.`atm_register` (name,surname,email_address,password,telephone_number,remaining_number,is_passive) values ("Hamit2","Mızrak2","hamitmizrak2@gmail.com","root422","+901112223344","4","0");
+
 
 -- SELECT
 select * from `atm`.`atm_register` ;

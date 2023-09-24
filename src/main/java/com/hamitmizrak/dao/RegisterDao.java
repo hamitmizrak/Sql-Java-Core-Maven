@@ -21,9 +21,9 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
             try (Connection connection = getInterfaceConnection()) {
                 // Transaction  açmak
                 connection.setAutoCommit(false);
-                // insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number,remaining_number,is_passive) values ("Hamit","Mızrak","hamitmizrak@gmail.com","root44","+901112223344",4,0);
+                // insert into `atm`.`atm_register` (name,surname,email_address,password,telephone_number,remaining_number,is_passive) values ("Hamit","Mızrak","hamitmizrak@gmail.com","root44","+901112223344",4,0);
                 // sql query
-                String sql = "insert into `atm`.`atm_register` (name,surname,email_addres,password,telephone_number,remaining_number,is_passive) values (?,?,?,?,?,?,?);\n";
+                String sql = "insert into `atm`.`atm_register` (name,surname,email_address,password,telephone_number,remaining_number,is_passive) values (?,?,?,?,?,?,?);\n";
                 // PreparedStatement Create
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, registerDto.getName());
@@ -70,7 +70,7 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 registerDto.setId(resultSet.getLong("id"));
                 registerDto.setName(resultSet.getString("name"));
                 registerDto.setSurname(resultSet.getString("surname"));
-                registerDto.setEmailAddress(resultSet.getString("email_addres"));
+                registerDto.setEmailAddress(resultSet.getString("email_address"));
                 registerDto.setPassword(resultSet.getString("password"));
                 registerDto.setTelephoneNumber(resultSet.getString("telephone_number"));
                 registerDto.setRemainingNumber(resultSet.getString("remaining_number"));
@@ -90,7 +90,7 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
         try (Connection connection = getInterfaceConnection()) {
             // select * from `atm`.`atm_register where id=1` ;
             // sql query
-            String sql = "select * from `atm`.`atm_register where id=`"+id;
+            String sql = "select * from `atm`.`atm_register` where id="+id;
             // PreparedStatement Create
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             // Sorgu: executeQuery
@@ -100,7 +100,7 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 registerDto.setId(resultSet.getLong("id"));
                 registerDto.setName(resultSet.getString("name"));
                 registerDto.setSurname(resultSet.getString("surname"));
-                registerDto.setEmailAddress(resultSet.getString("email_addres"));
+                registerDto.setEmailAddress(resultSet.getString("email_address"));
                 registerDto.setPassword(resultSet.getString("password"));
                 registerDto.setTelephoneNumber(resultSet.getString("telephone_number"));
                 registerDto.setRemainingNumber(resultSet.getString("remaining_number"));
@@ -114,8 +114,8 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
 
     // REGISTER UPDATE
     @Override
-    public RegisterDto update(RegisterDto registerDto) {
-        if (registerDto != null) {
+    public RegisterDto update(Long id,RegisterDto registerDto) {
+        if (registerDto != null && findById(id)!=null) {
             try (Connection connection = getInterfaceConnection()) {
                 // Transaction  açmak
                 connection.setAutoCommit(false);
@@ -131,7 +131,7 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 preparedStatement.setString(5, registerDto.getTelephoneNumber());
                 preparedStatement.setString(6, registerDto.getRemainingNumber());
                 preparedStatement.setString(7, registerDto.getIsPassive());
-                preparedStatement.setLong(8, registerDto.getId());
+                preparedStatement.setLong(8, id);
                 // Effected
                 int rowEffected = preparedStatement.executeUpdate();
                 if (rowEffected > 0) {
@@ -147,14 +147,16 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 sql.printStackTrace();
             }
             return registerDto;
+        }else{
+            System.out.println(id+" nolu Data bulunamadı !!!!");
         }
         return null;
     }
 
     // REGISTER DELETE
     @Override
-    public RegisterDto delete(RegisterDto registerDto) {
-        if (registerDto != null) {
+    public RegisterDto delete(Long id) {
+        if (findById(id)!=null) {
             try (Connection connection = getInterfaceConnection()) {
                 // Transaction  açmak
                 connection.setAutoCommit(false);
@@ -163,7 +165,7 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
                 String sql = "delete from `atm`.`atm_register` where id=?";
                 // PreparedStatement Create
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setLong(1, registerDto.getId());
+                preparedStatement.setLong(1, id);
                 // Effected
                 int rowEffected = preparedStatement.executeUpdate();
                 if (rowEffected > 0) {
@@ -178,7 +180,9 @@ public class RegisterDao implements IDaoConnection<RegisterDto> {
             } catch (SQLException sql) {
                 sql.printStackTrace();
             }
-            return registerDto;
+            return findById(id);
+        }else{
+            System.out.println(id+" nolu Data bulunamadı !!!!");
         }
         return null;
     }

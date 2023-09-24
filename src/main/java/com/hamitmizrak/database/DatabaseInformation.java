@@ -38,8 +38,4 @@ public class DatabaseInformation {
         this.url = url;
     }
 
-    public static void main(String[] args) {
-        DatabaseInformation databaseInformation=new DatabaseInformation();
-        System.out.println(databaseInformation);
-    }
-}
+}// end class
