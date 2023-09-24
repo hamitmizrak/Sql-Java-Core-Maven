@@ -18,6 +18,11 @@ public class CustomerDao implements IDaoConnection<CustomerDto> {
         return null;
     }
 
+    @Override
+    public CustomerDto findById(Long id) {
+        return null;
+    }
+
     // CUSTOMER UPDATE
     @Override
     public CustomerDto update(CustomerDto customerDto) {

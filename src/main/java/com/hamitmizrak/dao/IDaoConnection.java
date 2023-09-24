@@ -14,6 +14,8 @@ public interface IDaoConnection<T> {
     // LIST
     public ArrayList<T> list();
 
+    public T findById(Long id);
+
     // UPDATE
     public T update(T t);
 
@@ -21,7 +23,7 @@ public interface IDaoConnection<T> {
     public T delete(T t);
 
     //
-   default Connection getInterfaceConection(){
+   default Connection getInterfaceConnection(){
         return DatabaseConnection.getInstance().getConnection();
     }
 
